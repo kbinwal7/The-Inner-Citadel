@@ -1,5 +1,8 @@
 from flask import Flask, render_template, jsonify, request
-from src.helper import download_hugging_face_embeddings
+import sys, os
+sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+from helper import download_hugging_face_embeddings
+
 from langchain_pinecone import PineconeVectorStore
 from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain
