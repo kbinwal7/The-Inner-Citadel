@@ -1,7 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 from src.helper import download_hugging_face_embeddings
 from langchain_pinecone import PineconeVectorStore
-from langchain_community.chat_models import ChatOllama
+from langchain_openai import ChatOpenAI
 from langchain.chains import create_retrieval_chain
 from langchain.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
@@ -31,7 +31,11 @@ docsearch = PineconeVectorStore.from_existing_index(
 
 retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k":3})
 
-chatModel = ChatOllama(model="phi3:mini")
+chatModel = ChatOpenAI(
+    base_url="https://openrouter.ai/api/v1",
+    api_key=os.environ.get("OPENROUTER_API_KEY"),
+    model="microsoft/phi-3-mini-128k-instruct"
+)
 prompt = ChatPromptTemplate.from_messages(
     [
         ("system", system_prompt),
