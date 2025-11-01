@@ -17,24 +17,23 @@ PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
 OPENROUTER_API_KEY = os.environ.get("OPENROUTER_API_KEY")
 
 if not PINECONE_API_KEY or not OPENROUTER_API_KEY:
-    raise ValueError("Missing one or more required environment variables: PINECONE_API_KEY, OPENROUTER_API_KEY")
+    raise ValueError("Missing required environment variables")
 
+# Initialize Pinecone
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
-
+# Load embeddings
 embeddings = download_hugging_face_embeddings()
 if embeddings is None:
-    raise ValueError("Failed to initialize HuggingFace embeddings.")
+    raise ValueError("Failed to initialize embeddings")
 
-# Connect to existing Pinecone index
+# Connect to Pinecone index
 index_name = "stoic-chatbot"
 index = pc.Index(index_name)
-
-# Create vector store
 docsearch = PineconeLangChain(index, embeddings.embed_query, "text")
 retriever = docsearch.as_retriever(search_type="similarity", search_kwargs={"k": 3})
 
-
+# Initialize ChatOpenAI
 chatModel = ChatOpenAI(
     base_url="https://openrouter.ai/api/v1",
     api_key=OPENROUTER_API_KEY,
@@ -42,13 +41,11 @@ chatModel = ChatOpenAI(
     temperature=0.7
 )
 
-# Create prompt template
+# Create chains
 prompt = ChatPromptTemplate.from_messages([
     ("system", system_prompt),
     ("human", "{input}")
 ])
-
-
 question_answer_chain = create_stuff_documents_chain(chatModel, prompt)
 rag_chain = create_retrieval_chain(retriever, question_answer_chain)
 
@@ -64,11 +61,10 @@ def chat():
             return "Please provide a message."
         
         response = rag_chain.invoke({"input": msg})
-        answer = response.get("answer", "I'm sorry, I couldn't generate a response.")
-        return str(answer)
+        return str(response.get("answer", "I couldn't generate a response."))
     except Exception as e:
-        print(f"Error in chat endpoint: {e}")
-        return "An error occurred while processing your request."
+        print(f"Error: {e}")
+        return "An error occurred."
 
 @app.route("/health")
 def health():
