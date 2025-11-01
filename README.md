@@ -40,13 +40,11 @@ conda create -n stoic-bot python=3.10 -y <br>
 conda activate stoic-bot
 ### 3️⃣ Install Requirements
 <br>
-pip install -r requirements.txt
+pip install -r requirements.txt <br>
 ### 4️⃣ Add Environment Variables
 Create a .env file in the project root: <br>
 PINECONE_API_KEY=your_pinecone_api_key <br>
 OPENROUTER_API_KEY=your_openrouter_api_key <br>
-
-
 ### 5️⃣ Store Embeddings
 python store_index.py
 ### 6️⃣ Run the Chatbot
