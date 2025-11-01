@@ -1,8 +1,10 @@
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from typing import List
-from langchain.schema import Document
+from langchain_core.documents import Document
 from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
+
+
 
 
 
@@ -41,13 +43,13 @@ def text_split(extracted_data):
 
 
 #Download the Embeddings from HuggingFace 
-
-
 def download_hugging_face_embeddings():
     try:
-        embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/paraphrase-MiniLM-L3-v2')
-        print("Loaded 'paraphrase-MiniLM-L3-v2' successfully.")
+        embeddings = HuggingFaceEmbeddings(model_name="sentence-transformers/all-MiniLM-L6-v2")
+        print("Loaded embedding model: all-MiniLM-L6-v2")
+        return embeddings
     except Exception as e:
-        print("Error loading HuggingFaceEmbeddings:", e)
-        embeddings = None
-    return embeddings
+        print("Error loading embeddings:", e)
+        return None
+
+
