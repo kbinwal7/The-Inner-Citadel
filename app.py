@@ -19,8 +19,9 @@ app = Flask(__name__)
 
 load_dotenv()
 
-PINECONE_API_KEY=os.environ.get('PINECONE_API_KEY')
-os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
+PINECONE_API_KEY = os.environ.get('PINECONE_API_KEY')
+if not PINECONE_API_KEY:
+    raise ValueError("Missing PINECONE_API_KEY environment variable!")
 
 
 
