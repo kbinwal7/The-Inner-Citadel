@@ -1,6 +1,5 @@
 mkdir -p src
 mkdir -p research
-rmdir -p resource
 #creating files
 touch src/__init__.py
 touch src/helper.py
@@ -9,5 +8,8 @@ touch .env
 touch app.py
 touch research/trails.ipynb
 touch requirements.txt
+touch setup.py
+
+
 
 echo "Directory and files created successfully"
