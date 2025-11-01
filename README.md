@@ -32,39 +32,29 @@ Deployed on **Render.com** ☁️
 
 ## 🚀 Run Locally
 
-### 1️⃣ Clone the Repository
+### 1️⃣ Clone the Repository<br>
 git clone https://github.com/kbinwal7/The-Inner-Citadel.git <br>
-cd The-Inner-Citadel
-### 2️⃣ Create a Virtual Environment
+cd The-Inner-Citadel<br>
+### 2️⃣ Create a Virtual Environment<br>
 conda create -n stoic-bot python=3.10 -y <br>
-conda activate stoic-bot
-### 3️⃣ Install Requirements
-<br>
+conda activate stoic-bot<br>
+### 3️⃣ Install Requirements<br>
 pip install -r requirements.txt <br>
-### 4️⃣ Add Environment Variables
+### 4️⃣ Add Environment Variables<br>
 Create a .env file in the project root: <br>
 PINECONE_API_KEY=your_pinecone_api_key <br>
 OPENROUTER_API_KEY=your_openrouter_api_key <br>
-### 5️⃣ Store Embeddings
-python store_index.py
-### 6️⃣ Run the Chatbot
-python app.py
-
+### 5️⃣ Store Embeddings <br>
+python store_index.py <br>
+### 6️⃣ Run the Chatbot <br>
+python app.py <br>
 ### 🌐 Deploy on Render
-
 ## 🧘 Philosophy
 “You have power over your mind — not outside events.
 Realize this, and you will find strength.”
 — Marcus Aurelius
-
 Calm, minimal, and thoughtful — your Inner Citadel awaits.
 
-yaml
-Copy code
-
----
-
-Would you like me to add a **preview image/banner section** (e.g., a centered title box or screenshot placeholder) at the top before the quote? It looks really nice on GitHub pages.
 
 
 
