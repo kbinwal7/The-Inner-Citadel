@@ -5,6 +5,7 @@ from langchain_community.document_loaders import PyPDFLoader, DirectoryLoader
 from langchain_community.embeddings import HuggingFaceEmbeddings
 
 
+
 #Extract Data From the PDF File
 def load_pdf_file(data):
     loader= DirectoryLoader(data,
@@ -40,6 +41,13 @@ def text_split(extracted_data):
 
 
 #Download the Embeddings from HuggingFace 
+
+
 def download_hugging_face_embeddings():
-    embeddings=HuggingFaceEmbeddings(model_name='sentence-transformers/all-MiniLM-L6-v2')  #this model return 384 dimensions
+    try:
+        embeddings = HuggingFaceEmbeddings(model_name='sentence-transformers/paraphrase-MiniLM-L3-v2')
+        print("Loaded 'paraphrase-MiniLM-L3-v2' successfully.")
+    except Exception as e:
+        print("Error loading HuggingFaceEmbeddings:", e)
+        embeddings = None
     return embeddings
