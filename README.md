@@ -48,7 +48,7 @@ OPENROUTER_API_KEY=your_openrouter_api_key <br>
 python store_index.py <br>
 ### 6️⃣ Run the Chatbot <br>
 python app.py <br>
-### 🌐 Deploy on Render
+### 🌐 Deploy 
 ## 🧘 Philosophy
 “You have power over your mind — not outside events.
 Realize this, and you will find strength.”
