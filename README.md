@@ -54,67 +54,6 @@ The-Inner-Citadel/
 ├── requirements.txt    # Project dependencies
 └── .env                # API Keys (ignored by git)
 ```
-I've refined the entire document into a clean, professional, and properly formatted .md file. I used clear heading hierarchies, consistent code blocks, and horizontal rules to ensure it's easy to read and navigate.
-
-Here is the full content for your README.md:
-
-Markdown
-# The Inner Citadel
-
-The Inner Citadel is a lightweight conversational AI application designed to provide calm, focused interactions inspired by Stoic philosophy. The system combines modern language models with semantic search to deliver context-aware responses within a minimal and distraction-free interface.
-
-The application is built using **LangChain**, **Flask**, **Pinecone**, and **OpenRouter-compatible language models**, and is optimized for deployment on platforms such as **Hugging Face Spaces**.
-
----
-
-## Architecture Overview
-
-The project integrates a simple web interface with a **Retrieval-Augmented Generation (RAG)** pipeline.
-
-**Core Workflow:**
-1. A user query is submitted through the web interface.
-2. The query is converted into embeddings using a compatible embedding model.
-3. **Pinecone** retrieves relevant contextual documents from the vector database.
-4. The **LLM** (via OpenRouter) generates a response using the retrieved context.
-5. The response is returned to the interface in real-time.
-
----
-
-## Technology Stack
-
-| Layer | Technology |
-| :--- | :--- |
-| **Backend** | Flask |
-| **LLM Interface** | OpenRouter |
-| **Framework** | LangChain |
-| **Vector Database** | Pinecone |
-| **Deployment** | Hugging Face Spaces / Render |
-| **Frontend** | HTML, CSS |
-
----
-
-## Features
-
-* **Context-Aware Responses:** Leverages RAG to provide historically grounded Stoic advice.
-* **Vector Search:** Efficient document retrieval using Pinecone.
-* **Open Access:** Integration with free/open LLMs through OpenRouter.
-* **Distraction-Free UI:** A minimal interface designed for reflection.
-* **Simple Deployment:** Streamlined workflow for cloud hosting.
-
----
-
-## Repository Structure
-
-```text
-The-Inner-Citadel/
-├── app.py              # Main Flask application
-├── store_index.py      # Script to process and upload embeddings
-├── templates/          # HTML files for the frontend
-├── static/             # CSS and JS assets
-├── data/               # Source documents (.pdf or .txt)
-├── requirements.txt    # Project dependencies
-└── .env                # API Keys
-```
 # Local Setup
 1. Clone the Repository
 ```
