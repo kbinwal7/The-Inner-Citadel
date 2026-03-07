@@ -42,6 +42,11 @@ The project integrates a simple web interface with a **Retrieval-Augmented Gener
 
 ---
 
+<img width="960" height="861" alt="Screenshot 2025-11-01 151853" src="https://github.com/user-attachments/assets/b87e548a-c18c-4a7a-b816-a18a153d3a43" />
+<img width="1860" height="983" alt="Screenshot 2025-11-01 170847" src="https://github.com/user-attachments/assets/80efc209-4484-4d5e-84be-59d8efc68b66" />
+<img width="1849" height="969" alt="Screenshot 2025-11-01 170940" src="https://github.com/user-attachments/assets/a8e9ba5e-fbb3-4a57-8837-28e214e985f7" />
+
+
 ## Repository Structure
 
 ```text
